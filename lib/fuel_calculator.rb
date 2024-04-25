@@ -30,12 +30,12 @@ module FuelCalculator
 
   def self.launch_fuel(mass, gravity)
     return 0 unless mass.positive?
-    [(mass * gravity * 0.042 - 33).to_i, 0].max.yield_self { |y| y + launch_fuel(y, gravity) }
+    [(mass * gravity * 0.042 - 33).to_i, 0].max.then { |y| y + launch_fuel(y, gravity) }
   end
 
   def self.landing_fuel(mass, gravity)
     return 0 unless mass.positive?
-    [(mass * gravity * 0.033 - 42).to_i, 0].max.yield_self { |y| y + landing_fuel(y, gravity) }
+    [(mass * gravity * 0.033 - 42).to_i, 0].max.then { |y| y + landing_fuel(y, gravity) }
   end
 
   private_class_method :validate_mission!, :dir_fuel, :launch_fuel, :landing_fuel
