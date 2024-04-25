@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+require "fuel_calculator"
+
+mass = ARGV[0].to_f
+planets = ARGV[1..] || []
+planets *= 2 if planets.one?
+
+path = planets.each_cons(2).flat_map { [[:launch, _1], [:land, _2]] }
+
+begin
+  puts FuelCalculator.call(mass, path)
+rescue FuelCalculator::ValidationError => e
+  abort e.message
+end
