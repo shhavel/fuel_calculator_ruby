@@ -11,10 +11,10 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 Run `bin/console` for an interactive prompt that will allow you to experiment:
 
 ~~~rb
-FuelCalculator.call(28801, [[:launch, "earth"], [:land, "moon"], [:launch, "moon"], [:land, "earth"]])
-#=> 51898
-FuelCalculator.call(28801, [[:launch, "earth"], [:launch, "moon"], [:land, "earth"]])
-#=> raises Invalid path (FuelCalculator::ValidationError)
+irb(main):001> FuelCalculator.call(28801, [[:launch, "earth"], [:land, "moon"], [:launch, "moon"], [:land, "earth"]])
+=> 51898
+irb(main):002> FuelCalculator.call(28801, [[:launch, "earth"], [:launch, "moon"], [:land, "earth"]])
+# raises Invalid path (FuelCalculator::ValidationError)
 ~~~
 
 ## CLI Installation
@@ -23,7 +23,7 @@ To install this gem onto your local machine, run `bundle exec rake install` and 
 
 ## CLI Usage
 
-The CLI interface is simplified. The user specifies a list of planets, and the program plans an appropriate launch/land path for the mission and calculates the amount of fuel.
+The CLI interface is simplified. The user specifies a mass of the ship (including equipment) and a list of planets, and the program plans an appropriate launch/land path for the mission and calculates the amount of fuel.
 
     $ fuel_calculator 28801 earth moon earth
     51898
