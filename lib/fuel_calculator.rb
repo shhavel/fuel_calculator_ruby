@@ -17,7 +17,7 @@ module FuelCalculator
     raise ValidationError, "Invalid mass" unless mass.is_a?(Numeric) && mass.positive?
     raise ValidationError, "Unknown planet" unless path.all? { |_, planet| GRAVITY.key?(planet) }
     raise ValidationError, "Invalid path" unless path.is_a?(Array) && path.all? { |pair| pair.is_a?(Array) && pair.size == 2 }
-    raise ValidationError, "Invalid path" unless path[0][0] == :launch && path[-1][0] == :land
+    raise ValidationError, "Invalid path" unless path.any? && path[0][0] == :launch && path[-1][0] == :land
     raise ValidationError, "Invalid path" unless path.each_cons(2).all? do |(d1, p1), (d2, p2)|
       (d1 == :launch) ? d2 == :land : d2 == :launch && p1 == p2
     end

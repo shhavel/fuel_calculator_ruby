@@ -29,3 +29,15 @@
   [ "$status" -eq 1 ]
   [ "$output" = "Invalid mass" ]
 }
+
+@test "Invalid mass" {
+  run fuel_calculator none
+  [ "$status" -eq 1 ]
+  [ "$output" = "Invalid mass" ]
+}
+
+@test "No path provided" {
+  run fuel_calculator 123
+  [ "$status" -eq 1 ]
+  [ "$output" = "Invalid path" ]
+}
