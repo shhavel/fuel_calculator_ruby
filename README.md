@@ -25,7 +25,8 @@ To install this gem onto your local machine, run `bundle exec rake install` and 
 
 The CLI interface is simplified. The user specifies a list of planets, and the program plans an appropriate launch/land path for the mission and calculates the amount of fuel.
 
-    fuel_calculator 28801 earth moon earth
+    $ fuel_calculator 28801 earth moon earth
+    51898
 
 ## Install <abbr title="Bash Automated Testing System">BATS</abbr> for CLI testing
 
@@ -33,4 +34,8 @@ https://bats-core.readthedocs.io/en/stable/installation.html
 
 ## Run <abbr title="Bash Automated Testing System">BATS</abbr> tests
 
-    bats test
+    $ bats test
+
+## Uninstall CLI
+
+    $ gem uninstall fuel_calculator
